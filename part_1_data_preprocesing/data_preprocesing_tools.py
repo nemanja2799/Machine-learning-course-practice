@@ -54,7 +54,7 @@ print(y)
 # good practise is to use 80 % for training and 20% for test model(test_size parameter)
 
 from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2)
+X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=0)
 print(X_train)
 print(X_test)
 print(y_train)
