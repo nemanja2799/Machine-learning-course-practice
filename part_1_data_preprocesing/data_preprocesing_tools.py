@@ -59,3 +59,19 @@ print(X_train)
 print(X_test)
 print(y_train)
 print(y_test)
+
+# feature scaling not necessary for all models - explained later
+# 2 types: standardisation and normalisation 
+# standardisation x-mean(x)^&*))/(standard deviatioon(x)) - all values betveen +-3 / used for all models
+# normalisation x-min(x/(max(x) - min(x))) all values between 0 and 1 / used for specific models
+
+# this should be applied to models after splitting to test and train models, so there will be two scaling for each model
+# standardization shouldn't be applied on columns which is transformed with OneHotEncoder or LinearEncoder,
+# because we will lose information we got with theese methods
+from sklearn.preprocessing import StandardScaler
+sc = StandardScaler()
+X_train[:, 3:] = sc.fit_transform(X_train[:, 3:])
+# first we make scaler with train model and then just apply this scaler on test model
+X_test[:, 3:] = sc.transform(X_test[:, 3:])
+print(X_train)
+print(X_test)
