@@ -46,3 +46,15 @@ plt.show()
 # plt.xlabel('Years of expiriance')
 # plt.ylabel('Salary')
 # plt.show()
+
+
+# make prediction on single variable x
+# when you put single value in square brackets it mean it is nao array, and when you
+# put double square brackets it means that it is 2d array(matrix)
+print(regressor.predict([[12]]))
+
+# get b1 coeficient in equation y = bo + b1* x1
+print(regressor.coef_)
+
+# get b1 coeficient in equasion y = bo + b1* x1
+print(regressor.intercept_)
