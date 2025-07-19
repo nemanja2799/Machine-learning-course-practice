@@ -53,8 +53,8 @@ plt.show()
 # put double square brackets it means that it is 2d array(matrix)
 print(regressor.predict([[12]]))
 
-# get b1 coeficient in equation y = bo + b1* x1
+# get b1 coeficient in equation y = bo + b1* x1 this is named slope coeficient 1
 print(regressor.coef_)
 
-# get b1 coeficient in equasion y = bo + b1* x1
+# get bo coeficient in equasion y = bo + b1* x1 this is named y-intercept(constant)
 print(regressor.intercept_)

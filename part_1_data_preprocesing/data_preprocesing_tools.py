@@ -31,18 +31,24 @@ from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder
 
 # OneHotEncoding
-# transform values from textual categories(for example 3 languages: Spanish, German,Italian) in three categories with equal priority
-# in values(1,2,4(001, 010, 100) to make it easier for machine learning model to process them)
+# transform values from textual categories
+# (for example 3 languages: Spanish, German,Italian) in three categories with equal 
+# priority
+# in values(1,2,4(001, 010, 100) to make it easier for machine learning model
+# to process them)
 
-# kind of transform way of transform and Clas of way of transformation,and thrid argument in transform is 
-# index od column we want to transform, reminder-way we want to treat other column(we keep them)
+# kind of transform way of transform and Class of way of transformation,
+# and thrid argument in transform is 
+# index od column we want to transform, reminder-way we want to treat other column
+# (we keep them)
 ct = ColumnTransformer(transformers=[('encoder', OneHotEncoder(), [0])], remainder='passthrough')
 # model expect array in input
 
 x = np.array(ct.fit_transform(x))
 print(x)
 
-# for columns which containes values 'yes' or 'no' for some action like for example purchased we
+# for columns which containes values 'yes' or 'no' for some action like for 
+# example purchased we
 # encode just 1 for yes and 0 for no
 from sklearn.preprocessing import LabelEncoder
 
@@ -50,7 +56,9 @@ le = LabelEncoder()
 y = le.fit_transform(y)
 print(y)
 
-# split models in train model in which we train model and test model in which we test model( test model is unknown for machine learning model until moment of test)
+# split models in train model in which we train model and test model 
+# in which we test model( test model is unknown for machine learning model 
+# until moment of test)
 # good practise is to use 80 % for training and 20% for test model(test_size parameter)
 
 from sklearn.model_selection import train_test_split
@@ -62,11 +70,15 @@ print(y_test)
 
 # feature scaling not necessary for all models - explained later
 # 2 types: standardisation and normalisation 
-# standardisation x-mean(x)^&*))/(standard deviatioon(x)) - all values betveen +-3 / used for all models
-# normalisation x-min(x/(max(x) - min(x))) all values between 0 and 1 / used for specific models
+# standardisation x-mean(x)^&*))/(standard deviatioon(x)) - all values betveen +-3 
+# / used for all models
+# normalisation x-min(x/(max(x) - min(x))) all values between 0 and 1 
+# / used for specific models
 
-# this should be applied to models after splitting to test and train models, so there will be two scaling for each model
-# standardization shouldn't be applied on columns which is transformed with OneHotEncoder or LinearEncoder,
+# this should be applied to models after splitting to test and train models, 
+# so there will be two scaling for each model
+# standardization shouldn't be applied on columns which is transformed 
+# with OneHotEncoder or LinearEncoder,
 # because we will lose information we got with theese methods
 from sklearn.preprocessing import StandardScaler
 sc = StandardScaler()
